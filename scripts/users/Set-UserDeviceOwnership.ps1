@@ -24,6 +24,18 @@ param (
 )
 
 # -----------------------------
+# config
+# -----------------------------
+
+$scopes = @(
+  "User.Read.All",
+  "Device.Read.All",
+  "Directory.Read.All",
+  "Device.ReadWrite.All",
+  "DeviceManagementManagedDevices.ReadWrite.All"
+)
+
+# -----------------------------
 # helpers
 # -----------------------------
 
@@ -80,18 +92,6 @@ function Normalize-Devices {
     }
   }
 }
-
-# -----------------------------
-# config
-# -----------------------------
-
-$scopes = @(
-  "User.Read.All",
-  "Device.Read.All",
-  "Directory.Read.All",
-  "Device.ReadWrite.All",
-  "DeviceManagementManagedDevices.ReadWrite.All"
-)
 
 # -----------------------------
 # main

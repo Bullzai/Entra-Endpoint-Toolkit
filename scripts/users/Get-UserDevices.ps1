@@ -23,6 +23,17 @@ param(
 )
 
 # -----------------------------
+# config
+# -----------------------------
+
+$scopes = @(
+  "User.Read.All",
+  "Device.Read.All",
+  "Directory.Read.All",
+  "DeviceManagementManagedDevices.Read.All"
+)
+
+# -----------------------------
 # helpers
 # -----------------------------
 
@@ -53,17 +64,6 @@ function Get-ActivityTimestamp {
   if ($null -ne $EntraApproxLastSignIn) { return $EntraApproxLastSignIn }
   return $null
 }
-
-# -----------------------------
-# config
-# -----------------------------
-
-$scopes = @(
-  "User.Read.All",
-  "Device.Read.All",
-  "Directory.Read.All",
-  "DeviceManagementManagedDevices.Read.All"
-)
 
 # -----------------------------
 # main

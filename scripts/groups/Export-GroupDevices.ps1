@@ -34,6 +34,24 @@ param(
 )
 
 # -----------------------------
+# config / validation
+# -----------------------------
+
+$scopes = @(
+  "Device.Read.All",
+  "DeviceManagementManagedDevices.Read.All",
+  "User.Read.All"
+)
+
+# allow calling with a bare GUID: .\Export-GroupDevices.ps1 <guid>
+if (-not [string]::IsNullOrWhiteSpace($GroupId) -and $GroupId -match '^[0-9a-fA-F-]{36}$' -and [string]::IsNullOrWhiteSpace($GroupName)) {
+  # ok
+}
+elseif ([string]::IsNullOrWhiteSpace($GroupId) -and [string]::IsNullOrWhiteSpace($GroupName)) {
+  throw "Provide either -GroupId or -GroupName (or pass groupId as first arg)."
+}
+
+# -----------------------------
 # helpers
 # -----------------------------
 
@@ -89,29 +107,11 @@ function Get-DeviceMembersRecursive {
 }
 
 # -----------------------------
-# config / validation
-# -----------------------------
-
-$scopes = @(
-  "Device.Read.All",
-  "DeviceManagementManagedDevices.Read.All",
-  "User.Read.All"
-)
-
-# allow calling with a bare GUID: .\Export-GroupDevices.ps1 <guid>
-if (-not [string]::IsNullOrWhiteSpace($GroupId) -and $GroupId -match '^[0-9a-fA-F-]{36}$' -and [string]::IsNullOrWhiteSpace($GroupName)) {
-  # ok
-}
-elseif ([string]::IsNullOrWhiteSpace($GroupId) -and [string]::IsNullOrWhiteSpace($GroupName)) {
-  throw "Provide either -GroupId or -GroupName (or pass groupId as first arg)."
-}
-
-# -----------------------------
 # main
 # -----------------------------
 
 # connect to graph
-Connect-MgGraph -Scopes $scopes | Out-Null
+Connect-Graph -Scopes $scopes
 
 # resolve group
 if (-not [string]::IsNullOrWhiteSpace($GroupId)) {
