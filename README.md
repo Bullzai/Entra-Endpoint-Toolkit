@@ -47,10 +47,10 @@ Each script is standalone and can be executed directly.
 Example:
 
 ```powershell
-.\scripts\devices\Compare-DeviceInventory.ps1
+.\scripts\users\Set-UserDeviceOwnership.ps1
 ```
 
-Some scripts require input files (see `/examples`).
+Some scripts require input files.
 
 ## Notes
 
