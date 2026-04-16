@@ -50,7 +50,7 @@ Example:
 .\scripts\users\Set-UserDeviceOwnership.ps1
 ```
 
-Some scripts require input files.
+Some scripts require input files (See `examples` folder).
 
 ## Notes
 
