@@ -1,7 +1,7 @@
 <#
 .DESCRIPTION
-Exports devices from an Entra group (including nested groups)
-and resolves primary user via Intune where available
+This tool will export all devices and info about them
+from a given group (including nested groups).
 
 .PARAMETER GroupId, GroupName, OutCsv (not mandatory)
 -GroupName "group name" -OutCsv ".\path\to\devices.csv"

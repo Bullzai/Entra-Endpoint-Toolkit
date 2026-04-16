@@ -1,7 +1,8 @@
 <#
 .DESCRIPTION
-Create/sync an Entra security group containing all Windows
-devices for users by a given attribute (city for example).
+If you need to generate and/or update already existing group with devices, that are in a specific location,
+this tool will create you a group with all the devices in it, based on a user attribute you provided.
+Works really well if user attributes can be trusted and is considered as source of truth.
 
 - Matches users by given attribute (city for example)
 - Finds Intune managed devices whose primary user is one of those users

@@ -1,6 +1,6 @@
 <#
 .DESCRIPTION
-Takes device names from devices.txt file and adds them to on-prem AD group.
+This tool will help you to add devices in bulk to on-prem AD groups.
 
 .EXAMPLE
 .\Add-DevicesToGroup.ps1

@@ -1,6 +1,7 @@
 <#
 .DESCRIPTION
-Retrieves & exports devices for users that they are most likely using.
+If you need a list of devices that users are (most likely) currently using according to your MS tenant,
+this tool will generate that list for you.
 
 .PARAMETER InputFile
 Path to file containing UPNs (one per line).

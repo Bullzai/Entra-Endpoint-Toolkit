@@ -1,7 +1,8 @@
 <#
 .DESCRIPTION
-Allows removing and adding registered/owned device relationships
-for a user, including bulk cleanup and primary user assignment.
+If you need to unnasign all devices except one from a user,
+check what they have assigned already, or assign a device
+(as Registered, Owned or Primary User) - this tool will do just that for you.
 
 .PARAMETER UPN
 user@domain.com
