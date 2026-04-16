@@ -6,7 +6,7 @@ Retrieves & exports devices for users that they are most likely using.
 Path to file containing UPNs (one per line).
 
 .EXAMPLE
-.\Get-UserDevices.ps1
+.\Get-UserDevices.ps1 .\input\upns.txt
 
 .NOTES
 Requires Microsoft Graph permissions:

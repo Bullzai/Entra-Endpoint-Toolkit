@@ -85,7 +85,7 @@ function Normalize-Devices {
 # config
 # -----------------------------
 
-$GraphScopes = @(
+$scopes = @(
   "User.Read.All",
   "Device.Read.All",
   "Directory.Read.All",
@@ -98,7 +98,7 @@ $GraphScopes = @(
 # -----------------------------
 
 # connect to graph
-Connect-Graph -Scopes $GraphScopes
+Connect-Graph -Scopes $scopes
 
 # choose operation
 Write-Host "`nChoose operation type:" -ForegroundColor Yellow
