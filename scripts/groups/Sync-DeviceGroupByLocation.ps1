@@ -405,6 +405,31 @@ function Sync-GroupMembership {
   }
 }
 
+function Test-Devices23H2Count {
+  param(
+    [array]$ManagedDevices
+  )
+
+  # print to debug the versions for match formula
+  $ManagedDevices | Select-Object -First 10 DeviceName, OsVersion | Format-Table
+  
+  # count only windows 23h2 devices
+  $filtered = @($ManagedDevices | Where-Object {
+      $_.OperatingSystem -eq "Windows" -and
+      (
+        $_.OsVersion -match "^10\.0\.22631" # win11 23h2
+      )
+    })
+
+  $total = if ($ManagedDevices) { $ManagedDevices.Count } else { 0 }
+  $count23H2 = $filtered.Count
+
+  Write-Host ""
+  Write-Host "Device summary (Test mode - 23H2 only)" -ForegroundColor Cyan
+  Write-Host "Total matched Windows devices : $total"
+  Write-Host "Windows 23H2 devices         : $count23H2" -ForegroundColor Green
+}
+
 # -----------------------------
 # main
 # -----------------------------
@@ -428,6 +453,11 @@ try {
 
   $managedDevices = Get-WindowsManagedDevicesForUsers -Users $users
   Write-Info "Matched Windows managed devices: $($managedDevices.Count)"
+
+  if ($Test) {
+    Test-Devices23H2Count -ManagedDevices $managedDevices
+    return
+  }
 
   if (-not $managedDevices -or $managedDevices.Count -eq 0) {
     Write-Warn "No Windows managed devices found for the matched users."
