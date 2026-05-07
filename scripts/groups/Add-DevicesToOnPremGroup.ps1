@@ -3,7 +3,7 @@
 This tool will help you to add devices in bulk to on-prem AD groups.
 
 .EXAMPLE
-.\Add-DevicesToGroup.ps1
+.\Add-DevicesToOnPremGroup.ps1
 
 .NOTES
 Requires INPUT file devices.txt - 1 line per device name
